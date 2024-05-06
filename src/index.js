@@ -9,7 +9,8 @@ const app = express();
 
 // cors options
 var corsOptions = {
-    origin: ['http://localhost:5173','http://localhost:5000', 'https://office-project-frontend.onrender.com','https://office-project-backend.onrender.com','*'],
+    // origin: ['http://localhost:5173','http://localhost:5000', 'https://office-project-frontend.onrender.com','https://office-project-backend.onrender.com','*'],
+    origin:"*",
     credentials: true,
     optionsSuccessStatus: 200,
     exposedHeaders: ['CL-X-TOKEN','CL-X-REFRESH']
