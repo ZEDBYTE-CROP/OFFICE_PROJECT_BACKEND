@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "ac6a2e22-12c8-4d81-ab47-ee77683fd28a",
+		"name": "rest_express",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11698155"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "loginAccount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const allCookies = pm.response.headers.all();\r",
+									"const cookieArray = allCookies.filter(cookie => cookie.key === 'Set-Cookie');\r",
+									"\r",
+									"cookieArray.forEach(cookie => {\r",
+									"    const [key, value] = cookie.value.split(';')[0].split('=');\r",
+									"    if (key.trim() === 'CL-X-TOKEN') {\r",
+									"        pm.environment.set('CL-X-TOKEN', value.trim());\r",
+									"    }\r",
+									"    if (key.trim() === 'CL-X-REFRESH') {\r",
+									"        pm.environment.set('CL-X-REFRESH', value.trim());\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rahul@gmail.com\",\r\n    \"password\": \"rahulk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/account/loginAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"loginAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createAccount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const allCookies = pm.response.headers.all();\r",
+									"const cookieArray = allCookies.filter(cookie => cookie.key === 'Set-Cookie');\r",
+									"\r",
+									"cookieArray.forEach(cookie => {\r",
+									"    const [key, value] = cookie.value.split(';')[0].split('=');\r",
+									"    if (key.trim() === 'CL-X-TOKEN') {\r",
+									"        pm.environment.set('CL-X-TOKEN', value.trim());\r",
+									"    }\r",
+									"    if (key.trim() === 'CL-X-REFRESH') {\r",
+									"        pm.environment.set('CL-X-REFRESH', value.trim());\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rahul@gmail.com\",\r\n    \"password\": \"rahulk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/account/createAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"createAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readAccount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const allCookies = pm.response.headers.all();\r",
+									"const cookieArray = allCookies.filter(cookie => cookie.key === 'Set-Cookie');\r",
+									"\r",
+									"cookieArray.forEach(cookie => {\r",
+									"    const [key, value] = cookie.value.split(';')[0].split('=');\r",
+									"    if (key.trim() === 'CL-X-TOKEN') {\r",
+									"        pm.environment.set('CL-X-TOKEN', value.trim());\r",
+									"    }\r",
+									"    if (key.trim() === 'CL-X-REFRESH') {\r",
+									"        pm.environment.set('CL-X-REFRESH', value.trim());\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "CL-X-TOKEN",
+								"value": "{{CL-X-TOKEN}}",
+								"uuid": "84e2c156-1cb0-4fbe-bb03-13fa4d1f3e6e"
+							},
+							{
+								"key": "CL-X-REFRESH",
+								"value": "{{CL-X-REFRESH}}",
+								"uuid": "3f40ef25-0bb0-4eac-812f-baa537ef83e1"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/account/readAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"readAccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "createFile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const allCookies = pm.response.headers.all();\r",
+									"const cookieArray = allCookies.filter(cookie => cookie.key === 'Set-Cookie');\r",
+									"\r",
+									"cookieArray.forEach(cookie => {\r",
+									"    const [key, value] = cookie.value.split(';')[0].split('=');\r",
+									"    if (key.trim() === 'CL-X-TOKEN') {\r",
+									"        pm.environment.set('CL-X-TOKEN', value.trim());\r",
+									"    }\r",
+									"    if (key.trim() === 'CL-X-REFRESH') {\r",
+									"        pm.environment.set('CL-X-REFRESH', value.trim());\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "CL-X-TOKEN",
+								"value": "{{CL-X-TOKEN}}",
+								"uuid": "9dbdc897-909c-4aed-bd46-02d1234acf2b"
+							},
+							{
+								"key": "CL-X-REFRESH",
+								"value": "{{CL-X-REFRESH}}",
+								"uuid": "483c5ad5-a641-4d83-84aa-b6bcd4d30aef"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "L8REdbqv8/new.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/file/uploadFile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"file",
+								"uploadFile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const allCookies = pm.response.headers.all();\r",
+									"const cookieArray = allCookies.filter(cookie => cookie.key === 'Set-Cookie');\r",
+									"\r",
+									"cookieArray.forEach(cookie => {\r",
+									"    const [key, value] = cookie.value.split(';')[0].split('=');\r",
+									"    if (key.trim() === 'CL-X-TOKEN') {\r",
+									"        pm.environment.set('CL-X-TOKEN', value.trim());\r",
+									"    }\r",
+									"    if (key.trim() === 'CL-X-REFRESH') {\r",
+									"        pm.environment.set('CL-X-REFRESH', value.trim());\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "CL-X-TOKEN",
+								"value": "{{CL-X-TOKEN}}",
+								"uuid": "862f2c74-5048-4278-88f9-325257b3af18"
+							},
+							{
+								"key": "CL-X-REFRESH",
+								"value": "{{CL-X-REFRESH}}",
+								"uuid": "b234484d-f864-4c34-b2ae-7662df7ac56c"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"36a4618d-bd53-4405-9d58-f0e378914867\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/file/deleteFile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"file",
+								"deleteFile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
